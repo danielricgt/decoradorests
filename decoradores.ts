@@ -29,6 +29,7 @@ class Families implements ApiPEndPoint {
             return this.castles;
         }
 
+        @test
         post(request: string){
             this.castles.push(request);
         }
@@ -39,6 +40,13 @@ class Families implements ApiPEndPoint {
         const endpointPath = "/" + className.toLowerCase();
 
         httpServer[endpointPath] = new target();
+    }
+
+    function test(target:any, key:String, descriptor: PropertyDescriptor){
+        console.log(target);
+        console.log(`identificador: ${key}`);
+        console.log(`${descriptor.value }`);
+
     }
 
 
